@@ -6,6 +6,8 @@ main file for linear regression project
 
 import numpy as np
 from matplotlib import pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
+from matplotlib import cm
 from ex1_functions import *
 
 data1=np.loadtxt(fname="ex1data1.txt",delimiter=",")
@@ -75,3 +77,26 @@ print('For population = 70,000, we predict a profit of {}\n'
 wait = input("Program paused. Press enter to continue \n")
 
 # Visualizing J
+print('*** Visualizing J(theta_0, theta_1) ***\n')
+
+# Grid over which we will compute J
+theta0_vals = np.linspace(-10, 10, 100)
+theta1_vals = np.linspace(-1, 4, 100)
+
+# initialize J_vals to a matrix of 0's
+J_vals = np.zeros([len(theta0_vals), len(theta1_vals)])
+
+# Fill out J_vals
+for (i,t0) in enumerate(theta0_vals):
+    for (j,t1) in enumerate(theta1_vals):
+        t=np.array([[t0],[t1]])
+        J_vals[i,j]=computeCost(X,y,t)
+        
+theta0_vals,theta1_vals = np.meshgrid(theta0_vals,theta1_vals)
+        
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+ax.plot_surface(theta0_vals, theta1_vals,np.transpose(J_vals),cmap='viridis')
+plt.xlabel("theta_0") 
+plt.ylabel("theta_1") 
+plt.show()
