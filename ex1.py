@@ -19,7 +19,7 @@ m=len(X) # number of training examples
 X=np.reshape(X,[m,1]) #reshaping into vectors
 y=np.reshape(y,[m,1])
 
-plt.title("Training data") 
+plt.figure()
 plt.xlabel("City population in 10,000s") 
 plt.ylabel("Food truck profit in $10,000") 
 plt.plot(X,y,'o') 
@@ -62,3 +62,16 @@ print(' -3.6303\n  1.1664\n\n');
 plt.plot(X[:,1], np.matmul(X,theta))
 plt.legend(['Training data','Linear regression'])
 plt.show()
+
+# Predict values for population sizes of 35,000 and 70,000
+predict1 =np.matmul(np.array([[1, 3.5]]),theta)
+print('For population = 35,000, we predict a profit of {}\n'
+      .format(predict1*10000))
+
+predict2 =np.matmul(np.array([[1, 7]]),theta)
+print('For population = 70,000, we predict a profit of {}\n'
+      .format(predict2*10000))
+
+wait = input("Program paused. Press enter to continue \n")
+
+# Visualizing J
