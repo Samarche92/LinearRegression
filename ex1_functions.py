@@ -13,4 +13,14 @@ def computeCost(X,y,theta):
     J*=J/(2*m)
 
     return J
+
+def gradientDescent(X, y, theta, alpha, iterations):
+    m=len(X)
+    
+    for it in range(iterations):
+        h=np.matmul(X,theta)
+        grad=np.matmul(np.transpose(X),h-y)
+        theta=theta-alpha*grad/m
+        
+    return theta
     

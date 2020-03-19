@@ -11,7 +11,7 @@ from ex1_functions import *
 data1=np.loadtxt(fname="ex1data1.txt",delimiter=",")
 
 # Plotting data
-print("Plotting data \n")
+print("*** Plotting data ***\n")
 X=data1[:,0]
 y=data1[:,1]
 m=len(X) # number of training examples
@@ -34,7 +34,7 @@ theta=np.zeros([2,1]) #initialize fitting parameters
 iterations = 1500;
 alpha = 0.01;
 
-print('Testing the cost function ...\n')
+print('*** Testing the cost function ***\n')
 #compute and display initial cost
 J = computeCost(X, y, theta);
 print('theta = [0 ; 0]\nCost computed = {}\n'.format(J))
@@ -47,3 +47,13 @@ print("theta = [-1 ; 2]\nCost computed = {} \n".format(J))
 print('Expected cost value (approx) 54.24\n')
 
 wait = input("Program paused. Press enter to continue \n")
+
+print("*** Running gradient descent ***")
+
+theta = gradientDescent(X, y, theta, alpha, iterations)
+
+# print theta to screen
+print('Theta found by gradient descent:\n{}\n'.format(theta))
+
+print('Expected theta values (approx)\n')
+print(' -3.6303\n  1.1664\n\n');
