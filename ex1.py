@@ -93,10 +93,20 @@ for (i,t0) in enumerate(theta0_vals):
         J_vals[i,j]=computeCost(X,y,t)
         
 theta0_vals,theta1_vals = np.meshgrid(theta0_vals,theta1_vals)
-        
+
+# surface plot       
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 ax.plot_surface(theta0_vals, theta1_vals,np.transpose(J_vals),cmap='viridis')
 plt.xlabel("theta_0") 
 plt.ylabel("theta_1") 
+plt.show()
+
+# Contour plot
+fig = plt.figure()
+# Plot J_vals as 15 contours spaced logarithmically between 0.01 and 100
+plt.contour(theta0_vals, theta1_vals,np.transpose(J_vals), np.logspace(-2, 3, 20))
+plt.xlabel("\theta_0") 
+plt.ylabel("\theta_1") 
+plt.plot(theta[0], theta[1], 'xr', markersize=12,linewidth=2)
 plt.show()
