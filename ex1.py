@@ -16,6 +16,9 @@ X=data1[:,0]
 y=data1[:,1]
 m=len(X) # number of training examples
 
+X=np.reshape(X,[m,1]) #reshaping into vectors
+y=np.reshape(y,[m,1])
+
 plt.title("Training data") 
 plt.xlabel("City population in 10,000s") 
 plt.ylabel("Food truck profit in $10,000") 
@@ -31,16 +34,16 @@ theta=np.zeros([2,1]) #initialize fitting parameters
 iterations = 1500;
 alpha = 0.01;
 
-print('\n Testing the cost function ...\n')
+print('Testing the cost function ...\n')
 #compute and display initial cost
 J = computeCost(X, y, theta);
-print('With theta = [0 ; 0]\nCost computed = {}\n'.format(J))
+print('theta = [0 ; 0]\nCost computed = {}\n'.format(J))
 print('Expected cost value (approx) 32.07\n');
 
 #further testing of the cost function
 
 J=computeCost(X,y,np.reshape(np.array([-1,2]),[2,1]))
-print("\n With theta = [-1 ; 2]\nCost computed = {} \n".format(J))
+print("theta = [-1 ; 2]\nCost computed = {} \n".format(J))
 print('Expected cost value (approx) 54.24\n')
 
 wait = input("Program paused. Press enter to continue \n")
