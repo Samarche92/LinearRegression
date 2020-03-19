@@ -57,3 +57,8 @@ print('Theta found by gradient descent:\n{}\n'.format(theta))
 
 print('Expected theta values (approx)\n')
 print(' -3.6303\n  1.1664\n\n');
+
+# Plot the linear fit
+plt.plot(X[:,1], np.matmul(X,theta))
+plt.legend(['Training data','Linear regression'])
+plt.show()
