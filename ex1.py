@@ -3,7 +3,6 @@
 """
 main file for linear regression project
 """
-
 import numpy as np
 from matplotlib import pyplot as plt 
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
@@ -106,7 +105,7 @@ plt.show()
 fig = plt.figure()
 # Plot J_vals as 15 contours spaced logarithmically between 0.01 and 100
 plt.contour(theta0_vals, theta1_vals,np.transpose(J_vals), np.logspace(-2, 3, 20))
-plt.xlabel("\theta_0") 
-plt.ylabel("\theta_1") 
+plt.xlabel("theta_0") 
+plt.ylabel("theta_1") 
 plt.plot(theta[0], theta[1], 'xr', markersize=12,linewidth=2)
 plt.show()

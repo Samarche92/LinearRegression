@@ -7,6 +7,7 @@ module containing useful functions
 import numpy as np
 
 def computeCost(X,y,theta):
+    """compute cost function for linear regression"""
     m=len(X)
     h=np.matmul(X,theta)
     J=np.linalg.norm(h-y)
@@ -15,6 +16,7 @@ def computeCost(X,y,theta):
     return J
 
 def gradientDescent(X, y, theta, alpha, iterations):
+    """apply gradient descent to find optimal theta"""
     m=len(X)
     
     for it in range(iterations):
